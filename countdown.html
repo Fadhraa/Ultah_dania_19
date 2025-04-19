@@ -55,6 +55,10 @@
             z-index: 10;
             cursor: pointer;
         }
+        #video{
+            margin-top: 100px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -66,14 +70,15 @@
         <h3>Untuk Dania Cintaku</h3>
         <div class="foryou">
             <h3>pencet lebahnya <br> ya cantik</h3>
-            <img id= "lebah"src="source/countdown/lebah.png" alt="">
-            <img id="bunga" src="source/countdown/bunga.png" alt="">
+            <img id= "lebah"src="/source/countdown/lebah.png" alt="">
+            <img id="bunga" src="/source/countdown/bunga.png" alt="">
         </div>
+        <iframe id="video" src="https://drive.google.com/file/d/1UtvObuUyMHFduoZYBSWnJ0XflpwSv9S9/preview" width="400" height="300" allow="autoplay"></iframe>
     </div>
     <script>
         const lebah =document.getElementById('lebah')
         lebah.addEventListener('click', function(){
-            window.location.href = 'https://youtube.com/shorts/YrS7qx08Is4';
+            document.getElementById('video').style.display= 'block';
         })
         function updateCountdown() {
             const targetDate = new Date('April 20, 2025 00:00:00').getTime();
