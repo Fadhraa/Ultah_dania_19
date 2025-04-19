@@ -59,6 +59,16 @@
             margin-top: 100px;
             display: none;
         }
+        #Message{
+            display: none;
+            width: 80%;
+            font-family: sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            height: 200px;
+            overflow: auto;
+        }
     </style>
 </head>
 <body>
@@ -70,15 +80,35 @@
         <h3>Untuk Dania Cintaku</h3>
         <div class="foryou">
             <h3>pencet lebahnya <br> ya cantik</h3>
-            <img id= "lebah"src="source/countdown/lebah.png" alt="">
-            <img id="bunga" src="source/countdown/bunga.png" alt="">
+            <img id= "lebah"src="/source/countdown/lebah.png" alt="">
+            <img id="bunga" src="/source/countdown/bunga.png" alt="">
         </div>
         <iframe id="video" src="https://drive.google.com/file/d/1UtvObuUyMHFduoZYBSWnJ0XflpwSv9S9/preview" width="400" height="300" allow="autoplay"></iframe>
+        <div id="Message">
+            <h1>Present for Ma Bee</h1>
+            <p>
+                Selamat ulang tahun cintaku cantikku sayang ku 
+                video ini adalah gambaran pertama dri hadiah sebenarnya yang akan fadhra kirim nanti hehe. sesuai yang dania mau nnt ketika pengumuman utbk fadhra harap kita berdua sama sama diterima agar lolosnya kita di utbk menjadi hadiah yang bener bener indah buat dania nnt yaa Aamiin...
+                <br>
+                <br>
+                jadi ayo kita berjuang buat utbk kita tenang aja cantik fadhra juga ajarin dania ko fadhra bantuu yaa kita sama sama memperjuangkan mimpi kita.
+                <br>
+                <br>
+                terus sebenarnya masi banyak moment yang belum fadhra masukan tpi ada di hpnya fadhra belom fadhra pindahin dan takut durasi videonya kelamaan klo di masuin semua jadi maaf yaa cantik klo videonya kurang maksimal, tpi fadhra harap dania suka sama videonya..
+                <br>
+                <br>
+                nantikan hadiah nya fadhra yg lain di tgl 28 Mei ya cantik...
+                <br>
+                <br>
+                your lovely, Mavi
+            </p>
+        </div>
     </div>
     <script>
         const lebah =document.getElementById('lebah')
         lebah.addEventListener('click', function(){
             document.getElementById('video').style.display= 'block';
+            document.getElementById('Message').style.display= 'block';
         })
         function updateCountdown() {
             const targetDate = new Date('April 20, 2025 00:00:00').getTime();
