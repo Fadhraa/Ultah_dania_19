@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
             background-color: #f3e5d8;
@@ -26,6 +27,34 @@
             font-size: 2em;
             font-weight: bold;
         }
+        .after_countdown {
+            display: none; /* Awalnya disembunyikan */
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .foryou{
+            position: relative;
+            width: 320px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .foryou #bunga{
+            width: 100%;
+            top: -50px;
+            position: absolute;
+
+        }
+        .foryou #lebah{
+            position: absolute;
+            top: 10px;
+            width: 120px;
+            right: 0;
+            z-index: 10;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -33,26 +62,42 @@
         <h1>Something is coming for my love <br> Dania Rizky Maulita in...</h1>
         <div class="countdown" id="countdown"></div>
     </div>
-    
+    <div class="after_countdown" id="after">
+        <h3>Untuk Dania Cintaku</h3>
+        <div class="foryou">
+            <h3>pencet lebahnya <br> ya cantik</h3>
+            <img id= "lebah"src="/source/countdown/lebah.png" alt="">
+            <img id="bunga" src="/source/countdown/bunga.png" alt="">
+        </div>
+    </div>
     <script>
+        const lebah =document.getElementById('lebah')
+        lebah.addEventListener('click', function(){
+            window.location.href = 'https://youtube.com/shorts/YrS7qx08Is4';
+        })
         function updateCountdown() {
             const targetDate = new Date('April 20, 2025 00:00:00').getTime();
             const now = new Date().getTime();
             const difference = targetDate - now;
-
+    
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-            if (difference < 0) {
+    
+            if (difference > 0) {
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
                 document.getElementById('countdown').innerHTML = "Waktu telah tiba!";
+                clearInterval(interval); // Hentikan interval agar tidak terus berjalan
+                // Redirect ke YouTube setelah 2 detik
+                setTimeout(() => {
+                    document.getElementById('after').style.display = 'flex';
+                }, 2000);
             }
         }
-
-        setInterval(updateCountdown, 1000);
+    
+        const interval = setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
