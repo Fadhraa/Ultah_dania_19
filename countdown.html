@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3e5d8;
+            color: #5a3e2b;
+            text-align: center;
+        }
+        .countdown-container {
+            background: #d7b899;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 0.55em;
+        }
+        .countdown {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .after_countdown {
+            display: none; /* Awalnya disembunyikan */
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .foryou{
+            position: relative;
+            width: 320px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .foryou #bunga{
+            width: 100%;
+            top: -50px;
+            position: absolute;
+
+        }
+        .foryou #lebah{
+            position: absolute;
+            top: 10px;
+            width: 120px;
+            right: 0;
+            z-index: 10;
+            cursor: pointer;
+        }
+        #video{
+            margin-top: 100px;
+            display: none;
+        }
+        #Message{
+            display: none;
+            width: 80%;
+            font-family: sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            height: 200px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <h1>Something is coming for my love <br> Dania Rizky Maulita in...</h1>
+        <div class="countdown" id="countdown"></div>
+    </div>
+    <div class="after_countdown" id="after">
+        <h3>Untuk Dania Cintaku</h3>
+        <div class="foryou">
+            <h3>pencet lebahnya <br> ya cantik</h3>
+            <img id= "lebah"src="/source/countdown/lebah.png" alt="">
+            <img id="bunga" src="/source/countdown/bunga.png" alt="">
+        </div>
+        <iframe id="video" src="https://drive.google.com/file/d/1UtvObuUyMHFduoZYBSWnJ0XflpwSv9S9/preview" width="400" height="300" allow="autoplay"></iframe>
+        <div id="Message">
+            <h1>Present for Ma Bee</h1>
+            <p>
+                Selamat ulang tahun cintaku cantikku sayang ku 
+                video ini adalah gambaran pertama dri hadiah sebenarnya yang akan fadhra kirim nanti hehe. sesuai yang dania mau nnt ketika pengumuman utbk fadhra harap kita berdua sama sama diterima agar lolosnya kita di utbk menjadi hadiah yang bener bener indah buat dania nnt yaa Aamiin...
+                <br>
+                <br>
+                jadi ayo kita berjuang buat utbk kita tenang aja cantik fadhra juga ajarin dania ko fadhra bantuu yaa kita sama sama memperjuangkan mimpi kita.
+                <br>
+                <br>
+                terus sebenarnya masi banyak moment yang belum fadhra masukan tpi ada di hpnya fadhra belom fadhra pindahin dan takut durasi videonya kelamaan klo di masuin semua jadi maaf yaa cantik klo videonya kurang maksimal, tpi fadhra harap dania suka sama videonya..
+                <br>
+                <br>
+                nantikan hadiah nya fadhra yg lain di tgl 28 Mei ya cantik...
+                <br>
+                <br>
+                your lovely, Mavi
+            </p>
+        </div>
+    </div>
+    <script>
+        const lebah =document.getElementById('lebah')
+        lebah.addEventListener('click', function(){
+            document.getElementById('video').style.display= 'block';
+            document.getElementById('Message').style.display= 'block';
+        })
+        function updateCountdown() {
+            const targetDate = new Date('April 20, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+    
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    
+            if (difference > 0) {
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                document.getElementById('countdown').innerHTML = "Waktu telah tiba!";
+                clearInterval(interval); // Hentikan interval agar tidak terus berjalan
+                // Redirect ke YouTube setelah 2 detik
+                setTimeout(() => {
+                    document.getElementById('after').style.display = 'flex';
+                }, 2000);
+            }
+        }
+    
+        const interval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

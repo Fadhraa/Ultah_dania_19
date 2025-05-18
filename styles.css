@@ -1,0 +1,566 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --bg-color:rgb(255, 243, 226);
+    --bg-text:rgb(255, 249, 249);
+    --primary-color:rgb(165, 111, 49);
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+
+    font-family: 'Poppins';
+}
+#main{
+    width: 100%;
+    position: fixed;
+    overflow-x: hidden;
+    overflow: hidden;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+#main.active{
+    overflow-y: auto;
+
+}
+#outer {
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    height: 100vh;
+    background-color: var(--bg-color);
+    transition: all 3s;
+}
+#outer.active{
+    transform: translateY(-100vh);
+}
+
+#balon {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: -5vh;
+    cursor: pointer;
+    transition: all 5s ease-in-out;
+    animation: goyang 3s infinite ease-in-out;
+}
+#balon.active{
+    bottom: 100vh;
+}
+
+
+@keyframes goyang {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+#content1 {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    
+    transition: all 3s ease-in-out; /* Animasi transisi */
+}
+#content1.active{
+    transform: translateY(-50vh);
+}
+#content1 h3{
+    margin: 0;
+    color: var(--primary-color);
+    font-family: "Tangerine";
+    font-size: 48px;
+    text-align: center;
+
+    width: 100vw;
+}
+
+#content1 h5{
+    font-family: "Dancing Script";
+    font-weight: 300;
+    font-size: 20px;
+}
+#content1 h4{
+    font-family: "Dancing Script";
+    font-weight: 300;
+    font-size: 20px;
+}
+
+#Greetings {
+    position: relative;
+    background-color: var(--bg-text) ;
+    
+    width: 100%;
+    height: auto;
+}
+#Greetings .header{
+    font-family: 'Dancing script';
+    font-size: 36px;
+    color: var(--primary-color);
+    padding: 10px;
+    text-align: center;
+} 
+
+#Greetings .content{
+    display: flex;
+    height: auto;
+    align-items: center;
+    padding: 10px;
+    font-size: 11px;
+    gap: 10px;
+    padding-bottom: 50px;
+}
+.decor{
+
+    position: relative;
+
+}
+
+.content .decor .bunga_greeting{
+    width: 100px;
+    position: absolute;
+
+    height: auto;
+}
+.bunga_greeting.satu{
+    right:0;
+    bottom: 0;
+}   
+.bunga_greeting.dua{
+    left:-30px;
+    top: -50px;
+    transform: rotate(180deg);
+}   
+
+.content video{
+    position: relative;
+    width: 150px;
+    height: 100%;
+    transform: perspective(450px) translateZ(10px) rotateY(30deg);
+    padding: 10px 10px 40px 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: -5px 5px 3px rgba(0,0,0,0.5);
+
+}
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+
+}
+.bg_gallery{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
+.bg_gallery img{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+
+    object-fit: cover;
+    object-position: center;
+    
+}
+.overlay{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(217, 198, 173, 0.5);
+}
+.gallery-title {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Dancing script';
+    padding: 20px;
+}
+.gallery {
+    position: relative;
+    width: 100%;
+
+}
+
+.photo {
+    position: absolute;
+    width: 120px;
+    height: 140px;
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+}
+.photo .decor{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+}
+.photo.dua .decor img{
+    position: relative;
+    width: 175px;
+    height: auto;
+    top: 50px;
+    z-index: 99;
+}
+.photo.empat .decor img{
+    position: relative;
+    width: 125px;
+    height: auto;
+    top: -120px;
+    left: -55px;
+    z-index: 99;
+}
+.photo > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+
+}
+
+.tape {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    width: 50px;
+    height: 15px;
+    background: rgba(255,255,255,0.6);
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+.photo:nth-child(1) { top: 120px; left: 50px; transform: rotate(-10deg); }
+.photo:nth-child(2) { top: 90px; left: 200px; transform: rotate(5deg); }
+.photo:nth-child(3) { top: 210px; left: 120px; transform: rotate(-3deg); }
+.photo:nth-child(4) { top: 310px; left: 50px; transform: rotate(7deg); }
+.photo:nth-child(5) { top: 360px; left: 200px; transform: rotate(-7deg); }
+
+/* My Message */
+.My_Message{
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--bg-text);
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+/* disclaimer message */
+.My_Message .disclaimer{
+    width: 250px;
+
+}
+.container{
+    text-align: center;
+    font-family: sans-serif;
+}
+.My_Message .container{
+    width: 98%;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.message_container{
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+    z-index: 3;
+
+    display: flex;
+    margin-top: 8.5vh;
+    align-items: center;
+    flex-direction: column;
+}
+.My_Message .container img{
+    width: 300px;
+    position: absolute;
+    top: -25vh;
+    z-index: 2;
+}
+.My_Message .container h3{
+    font-size: 32px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: 'Dancing script';
+}
+.Lanjut_Button{
+    background-color: transparent;
+    width: auto;
+    padding: 5px;
+
+    font-size: 12px;
+    margin: 20px;
+    font-family: "Poppins";
+    border-radius: 8px;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    border: 1px var(--primary-color) solid ;
+}
+.petal {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #d2a679;
+    border-radius: 30% 70% 30% 70%;
+    opacity: 0.8;
+    z-index: 1;
+}
+@keyframes fall {
+    to {
+        transform:  rotate(360deg);
+        top: 100%;
+        opacity: 0;
+    }
+}
+#hide-Container{
+    display: none;
+}
+#hide-Container.active{
+    display: block;
+}
+#Nostalgic{
+    width: 100%;
+    height: auto;
+    
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#Nostalgic.active{
+    display: flex;
+}
+#Nostalgic > h3{
+    font-family: 'Great Vibes';
+    font-size: 48px;
+    font-weight: 300;
+
+}
+#Nostalgic .message {
+    font-family: "Dancing Script";
+    font-size: 36px;
+    margin-top: 100px;
+    text-align: center;
+    color: var(--primary-color);
+}
+#Nostalgic p{
+    text-align: center;
+    margin: 20px 5px 0 5px;
+}
+.timeline {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    width: 100%;
+
+}
+
+.timeline .title{
+    font-size: 18px;
+    font-family: "Dancing Script";
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-style: italic;
+}
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: rgb(210, 130, 92);
+    transform: translateX(-50%);
+}
+
+.item-left,
+.item-right {
+    width: calc(50% - 20px); /* Mengurangi sedikit agar ada jarak */
+    position: relative;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.item-left {
+    align-self: flex-start;
+    text-align: right;
+    margin-left: 10px;
+
+}
+.left_container{
+    transform: perspective(400px) translateZ(20px) rotateY(25deg);
+}
+.right_container{
+    transform: perspective(400px) translateZ(-10px) rotateY(-25deg);
+}
+
+.item-right {
+    align-self: flex-end;
+    text-align: left;
+    margin-right: 10px;
+
+}
+
+/* Menambahkan lingkaran */
+.item-left::before,
+.item-right::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--bg-color);
+    border: 3px solid rgb(210, 130, 92);
+    border-radius: 50%;
+    top: 0px;
+}
+
+.item-left::before {
+    right: -20px; /* Posisi lingkaran di sisi kanan item kiri */
+}
+
+.item-right::before {
+    left: -20px; /* Posisi lingkaran di sisi kiri item kanan */
+}
+
+.timeline img,
+.timeline video{
+    width: 180px;
+
+    padding: 5px 5px 8px 5px;
+    background-color: white;
+    box-shadow: 2px 4px 2px rgba(0,0,0,0.5);
+}
+#Tebakan{
+
+    width: 100%;
+    height: 100vh;
+    font-family: "Dancing Script";
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+
+    overflow: hidden;
+
+}
+#overlay{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+}
+#koreksian{
+    display: flex;
+    font-family: sans-serif;
+    font-size: 1em;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: -500px;
+    transition: 1s;
+}
+#koreksian .hiasan{
+    position: absolute;
+    left: -30px;
+    background: transparent;
+    width: 50%;
+    top: -50px;
+}
+#koreksian p{
+    font-size: 0.75em;
+    padding:10px;
+
+}
+.modal-jawaban{
+    width: 75%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 99;
+    border-radius: 16px;
+    height: 420px;
+
+}
+.modal-jawaban #gambar_koreksi{
+    width: 50%;
+    height: auto;
+    padding: 10px 10px 20px 10px;
+    background-color: white; 
+    box-shadow: 0 8px 4px rgba(0,0,0,0.5);
+}
+#koreksian.active{
+    display: flex;
+
+
+    bottom: 100px;
+}
+#overlay.active{
+    display: block;
+}
+.Container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+#Tebakan button{
+    padding:5px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 2px var(--primary-color) solid;
+    font-size: 18px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+}
+#Tebakan #pertanyaan{
+    padding: 20px;
+    font-size: 24px;
+    font-family: "Poppins";
+    text-align: center;
+}
+#Tebakan input{
+    border: none;
+    border-bottom: 2px black solid;
+    background-color: transparent;
+    font-size: 18px;
+    font-family: sans-serif;
+    transition: 1s;
+}#Tebakan input:focus{
+    border: none;
+    outline: none;
+    
+    border-bottom: 4px black solid;
+}
+#chanel{
+    display: none;
+}
